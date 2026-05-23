@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.env
+.env
+.env.*
+wallet/
+*.json.key
+keypair*.json
+*keypair*.json
+*.log
+npm-debug.log*

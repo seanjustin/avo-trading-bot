@@ -1,0 +1,11 @@
+{
+  "estimatedAmountIn": "10000000",
+  "estimatedAmountOut": "8398765",
+  "estimatedFeeAmount": "25197",
+  "priceImpactPct": "0.019",
+  "aToB": true,
+  "amountSpecifiedIsInput": true,
+  "poolAddress": "7qbRF6YsyGuLUVs6Y1q64bdVrfe4ZcUUz1JRdoVNUJnm",
+  "inputMint": "GdZ9rwHyKcriLdbSzhtEFLe5MLs7Vk6AY1aE5ei7nsmP",
+  "outputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+}

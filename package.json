@@ -1,0 +1,41 @@
+{
+  "name": "avo-trading-bot",
+  "version": "1.0.0",
+  "description": "AVO DEX quote-and-route bot — Orca + Jupiter/Meteora",
+  "private": true,
+  "scripts": {
+    "start":        "ts-node src/main.ts",
+    "build":        "tsc --noEmit",
+    "test":         "jest --runInBand",
+    "test:watch":   "jest --watch",
+    "test:cov":     "jest --coverage",
+    "scanner:dry":  "ts-node src/scanner/index.ts --dry",
+    "risk:check":   "ts-node src/risk/engine.ts --check"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor":             "~0.29.0",
+    "@jup-ag/api":                   "^6.0.0",
+    "@orca-so/common-sdk":           "^0.6.4",
+    "@orca-so/whirlpools-sdk":       "^0.13.13",
+    "@solana/spl-token":             "^0.4.6",
+    "@solana/web3.js":               "^1.95.3",
+    "axios":                         "^1.7.7",
+    "bn.js":                         "^5.2.1",
+    "decimal.js":                    "^10.4.3",
+    "dotenv":                        "^16.4.5",
+    "node-telegram-bot-api":         "^0.66.0",
+    "pino":                          "^9.4.0",
+    "pino-pretty":                   "^11.3.0",
+    "zod":                           "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bn.js":                  "^5.1.6",
+    "@types/jest":                   "^29.5.13",
+    "@types/node":                   "^22.7.5",
+    "@types/node-telegram-bot-api":  "^0.64.7",
+    "jest":                          "^29.7.0",
+    "ts-jest":                       "^29.2.5",
+    "ts-node":                       "^10.9.2",
+    "typescript":                    "^5.6.3"
+  }
+}

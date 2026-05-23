@@ -1,0 +1,28 @@
+{
+  "inputMint": "GdZ9rwHyKcriLdbSzhtEFLe5MLs7Vk6AY1aE5ei7nsmP",
+  "inAmount": "10000000",
+  "outputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "outAmount": "8412341",
+  "otherAmountThreshold": "8328218",
+  "swapMode": "ExactIn",
+  "slippageBps": 75,
+  "platformFee": null,
+  "priceImpactPct": "0.023",
+  "routePlan": [
+    {
+      "swapInfo": {
+        "ammKey": "AvoMeteoraPool1111111111111111111111111111111",
+        "label": "Meteora DLMM",
+        "inputMint": "GdZ9rwHyKcriLdbSzhtEFLe5MLs7Vk6AY1aE5ei7nsmP",
+        "outputMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "inAmount": "10000000",
+        "outAmount": "8412341",
+        "feeAmount": "25237",
+        "feeMint": "GdZ9rwHyKcriLdbSzhtEFLe5MLs7Vk6AY1aE5ei7nsmP"
+      },
+      "percent": 100
+    }
+  ],
+  "contextSlot": 305123456,
+  "timeTaken": 0.041523
+}
