@@ -65,6 +65,9 @@ export const configSchema = z.object({
   TELEGRAM_BOT_TOKEN: z.string().optional().default(''),
   TELEGRAM_CHAT_ID:   z.string().optional().default(''),
 
+  // ── Dashboard ─────────────────────────────────────────────────────────────
+  DASHBOARD_PORT: numStr(3000),
+
   // ── Logging ───────────────────────────────────────────────────────────────
   LOG_LEVEL:    z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal']).default('info'),
   JSON_LOGGING: boolStr(true),

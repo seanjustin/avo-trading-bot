@@ -7,6 +7,7 @@ import { PaperLedger } from './execution/paperLedger';
 import { Executor } from './execution/executor';
 import { QuoteScanner } from './scanner';
 import { RpcHealthMonitor } from './infra/rpcHealth';
+import { startDashboard } from './infra/dashboard';
 import { Connection } from '@solana/web3.js';
 
 async function main(): Promise<void> {
@@ -60,12 +61,16 @@ async function main(): Promise<void> {
     }
   );
 
+  const port = Number(process.env.PORT ?? config.DASHBOARD_PORT);
+  const dashboard = startDashboard(port, { config, risk, ledger, rpcMon, strategy });
+
   const summaryTimer = setInterval(() => executor.logSummary(), 10 * 60 * 1000);
 
   function shutdown(signal: string): void {
     log.info({ signal, service: 'main' }, 'Shutting down');
     scanner.stop();
     rpcMon.stop();
+    dashboard.close();
     clearInterval(summaryTimer);
     executor.logSummary();
     process.exit(0);

@@ -4,13 +4,13 @@
   "description": "AVO DEX quote-and-route bot — Orca + Jupiter/Meteora",
   "private": true,
   "scripts": {
-    "start":        "ts-node src/main.ts",
-    "build":        "tsc --noEmit",
+    "start":        "node dist/src/main.js",
+    "dev":          "ts-node src/main.ts",
+    "build":        "tsc",
+    "typecheck":    "tsc --noEmit",
     "test":         "jest --runInBand",
     "test:watch":   "jest --watch",
-    "test:cov":     "jest --coverage",
-    "scanner:dry":  "ts-node src/scanner/index.ts --dry",
-    "risk:check":   "ts-node src/risk/engine.ts --check"
+    "test:cov":     "jest --coverage"
   },
   "dependencies": {
     "@coral-xyz/anchor":             "~0.29.0",
