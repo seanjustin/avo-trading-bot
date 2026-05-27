@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: avo-trading-bot
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AVO_MINT
+        value: GdZ9rwHyKcriLdbSzhtEFLe5MLs7Vk6AY1aE5ei7nsmP
+      - key: USDC_MINT
+        value: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+      - key: PAPER_TRADING
+        value: "true"
+      - key: LIVE_TRADING
+        value: "false"
+      - key: TELEGRAM_ENABLED
+        value: "false"
+      - key: LOG_LEVEL
+        value: info
+      - key: SOLANA_RPC_URL
+        sync: false
+      - key: SOLANA_KEYPAIR_PATH
+        value: ./wallet/keypair.json
