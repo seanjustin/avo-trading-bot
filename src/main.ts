@@ -49,14 +49,19 @@ async function main(): Promise<void> {
     (prev, next) => void telegram.routeChange(`Best venue: ${prev} → ${next}`, { prev, next })
   );
 
+  let scannerFailures = 0;
   const scanner = new QuoteScanner(
     config,
-    (event) => strategy.process(event),
+    (event) => { scannerFailures = 0; strategy.process(event); },
     (err, venue) => {
-      log.error({ err, venue, service: 'scanner' }, 'Scanner error');
-      if (config.KILL_SWITCH_ON_RPC_INSTABILITY) {
-        risk.triggerKillSwitch(`Scanner error on ${venue}: ${err.message}`);
-        void telegram.killSwitch(`Kill switch: RPC failure on ${venue}`);
+      scannerFailures++;
+      log.error({ err, venue, scannerFailures, service: 'scanner' }, 'Scanner error');
+      if (
+        config.KILL_SWITCH_ON_RPC_INSTABILITY &&
+        scannerFailures >= config.MAX_RPC_FAILURES
+      ) {
+        risk.triggerKillSwitch(`Scanner: ${scannerFailures} consecutive failures on ${venue}`);
+        void telegram.killSwitch(`Kill switch: ${scannerFailures} scanner failures on ${venue}`);
       }
     }
   );
